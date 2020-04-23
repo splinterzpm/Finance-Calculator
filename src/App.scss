@@ -36,3 +36,12 @@
     transform: rotate(360deg);
   }
 }
+
+.Accounts {
+  display: block;
+  float: left;
+  background-color: #26c6da;
+  :hover {
+    background-color: darken($color: #26c6da, $amount: 10%);
+  }
+}

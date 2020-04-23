@@ -1,12 +1,22 @@
 .AccMain {
     display: block;
-    margin: 20px;
+    float: left;
+    clear: both;
     padding: 20px;
+    background-color: #26c6da;
+    :hover {
+    background-color: darken($color: #26c6da, $amount: 10%);
+  }
 }
 
 .AccBtn {
     display: block;
-    margin: 10px;
+    margin: 20px;
     float: left;
     clear: both;
+}
+
+.Account {
+    display: block;
+    
 }
