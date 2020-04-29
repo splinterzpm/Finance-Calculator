@@ -20,7 +20,7 @@ class AddAccount extends Component<Props, State> {
     constructor(props: Props) {
         super(props);
         this.state = {
-            id: 0,
+            id: 3,
             name: '',
             balance: 0
         };
@@ -42,7 +42,7 @@ class AddAccount extends Component<Props, State> {
             <div className="AddAccount">
                 <form>
                     <div className="SpanAddAccount">
-                        <span> Добавление счета </span>
+                        <span> Add Account </span>
                     </div>
 
                     <div>

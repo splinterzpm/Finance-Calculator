@@ -5,6 +5,7 @@ import Account from '../../Account';
 import '../../scss/Transaction.scss';
 
 interface Props {
+    categories: Array<string>,
     accountList: Array<Account>,
     handleCreateTransaction: (transaction: Transaction) => void
 }
@@ -12,6 +13,8 @@ interface Props {
 interface State {
     id: number;
     account: Account['name'];
+    accountid: Account['id'];
+    amount: number;
     category: string;
     description: string;
     date?: Date
@@ -23,6 +26,8 @@ class AddTransaction extends Component<Props, State> {
         this.state = {
             id: 0,
             account: '',
+            accountid: 0,
+            amount: 0,
             category: '',
             description: '',
             //date: {Date.now()}
@@ -35,37 +40,35 @@ class AddTransaction extends Component<Props, State> {
 
     handleSubmit = (e: React.FormEvent<HTMLButtonElement>) => {
         e.preventDefault();
-        const {id, account, category, description} = this.state;
-        this.props.handleCreateTransaction(new Transaction(id, account, category, description));
-        this.setState({id: id+1, category: '', description: ''});
+        const {id, account, amount, accountid, category, description} = this.state;
+        this.props.handleCreateTransaction(new Transaction(id, account, amount, category, description));
+        this.props.accountList[accountid].balance = this.props.accountList[accountid].balance - amount;
+        this.setState({id: id+1, amount: 0, category: '', description: ''});
     }
 
-    handleChangeDropdown = (account: Account['name']) => {
-        this.setState({ account: account });
+    handleChangeDropdown = (account: Account['name'], id: Account['id']) => {
+        this.setState({ account: account, accountid: id });
     }
 
     componentDidMount = () => {
-        document.addEventListener('DOMContentLoaded', function() {
-            var elems = document.querySelectorAll('.dropdown-trigger');
-            M.Dropdown.init(elems, {inDuration: 300, outDuration: 225});
-        });
+        var elems = document.querySelectorAll('.dropdown-trigger');
+        M.Dropdown.init(elems, {inDuration: 300, outDuration: 225});
     }
 
     render() {
-        console.log(this.state.account);
         return (
             <div className="AddTransaction">
                 <form>
-                    <div className="SpanAddAccount">
-                        <span> Добавление транзакции </span>
+                    <div className="SpanAddTransaction">
+                        <span> Add transaction </span>
                     </div>
                     
                     <div>
                         <div className="input-field col s4">
                             <a className="dropdown-trigger btn blue-grey darken-2" href="#" data-target="dropdown1"> Choose account</a>
-                            <ul id="dropdown1" className='dropdown-content'>
+                            <ul id="dropdown1" className='dropdown-content blue-grey darken-2'>
                                 { this.props.accountList.map((account)=> (
-                                    <li key={`account_${account.id}`} onClick={() => this.handleChangeDropdown(account.name)}>
+                                    <li key={`account_${account.id}`} onClick={() => this.handleChangeDropdown(account.name, account.id)}>
                                         <a href="#!">
                                             {account.name}
                                         </a>
@@ -73,6 +76,13 @@ class AddTransaction extends Component<Props, State> {
                                 ))
                                 }
                             </ul>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div className="input-field col s4">
+                        <input placeholder="Amount" type="number" className="validate"  name="amount" value={this.state.amount} 
+                            onChange={this.handleChange} />
                         </div>
                     </div>
 
@@ -86,9 +96,9 @@ class AddTransaction extends Component<Props, State> {
                     <div>
                         <div className="input-field col s4">
                             <input placeholder="Description" type="text" className="validate" name="description" value={this.state.description} 
-                                onChange={this.handleChange}/>
+                                onChange={this.handleChange} /> 
                         </div>
-                        <button className="waves-effect waves-light btn blue-grey darken-2 AccBtn"  
+                        <button className="waves-effect waves-light btn blue-grey darken-2 TransactionBtn"  
                         onClick={this.handleSubmit}> Add </button>
                     </div>
                 </form>

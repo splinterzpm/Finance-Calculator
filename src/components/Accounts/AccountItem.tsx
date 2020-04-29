@@ -11,10 +11,18 @@ interface Props {
 class AccountItem extends Component<Props, any>{
 
     render() {
+        if ( Math.sign(this.props.account.balance) === -1 )
         return (
             <div className="AccountListItems">
                 <span className="AccountItem"> {this.props.account.name} </span> 
-                <span className="AccountItem"> {this.props.account.balance} </span> 
+                <span className="AccountItem"> {'-$'+ Math.abs(this.props.account.balance) } </span> 
+            </div>
+        );
+        else
+        return (
+            <div className="AccountListItems">
+                <span className="AccountItem"> {this.props.account.name} </span> 
+                <span className="AccountItem"> ${this.props.account.balance} </span> 
             </div>
         );
     }

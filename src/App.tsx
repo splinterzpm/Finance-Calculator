@@ -18,19 +18,21 @@ interface Props {}
 interface State {
   accountList: Array<Account>,
   transactionList: Array<Transaction>
+  categories: Array<string>
 };
 
 class App extends React.Component<Props, State>{
   constructor(props: Props) {
     super(props);
     this.state = {
+        categories: ['Restaurants & Cafes', 'Drinks', 'Gadgets', 'Groceries'],
         accountList: [
-          new Account(1, 'account1', 25.00),
-          new Account(2, 'account2', 50.75),
-          new Account(3, 'account3', 43.75),
+          new Account(0, 'account1', 25.00),
+          new Account(1, 'account2', 50.75),
+          new Account(2, 'account3', 43.75),
         ],
         transactionList: [
-          new Transaction(1, 'account1', 'Рестораны',"McDonald's")
+          new Transaction(0, 'account1', 150, 'Restaurants & Cafes',"McDonald's")
         ]
     };
   };
@@ -78,7 +80,11 @@ class App extends React.Component<Props, State>{
             <Route exact path="/" component={Home} />
             <Route path="/Accounts/Add" render={(props) => <AddAccount handleCreateAccount={this.handleCreateAccount} />} />
             <Route path="/Accounts" render={(props) => <Accounts accountList={this.state.accountList} />} />
-            <Route path="/Transactions/Add" render={(props) => <AddTransaction handleCreateTransaction={this.handleCreateTransaction} accountList={this.state.accountList}/>} />
+            <Route path="/Transactions/Add" render={(props) => 
+              <AddTransaction handleCreateTransaction={this.handleCreateTransaction}
+                              accountList={this.state.accountList} 
+                              categories={this.state.categories}/>} 
+            />
             <Route path="/Transactions" render={(props) => <Transactions transactionList={this.state.transactionList} />} />            
             <Route component={NotFound} />
           </Switch>
