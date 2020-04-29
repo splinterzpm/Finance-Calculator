@@ -1,17 +1,18 @@
 import React, { Component } from 'react';
-import Account from "../Account";
-import '../scss/Account.scss';
+
+import Account from "../../Account";
+
+import '../../scss/Account.scss';
 
 interface Props {
     account: Account
 }
 
-class AccountItem extends Component <Props, any>{
+class AccountItem extends Component<Props, any>{
 
     render() {
         return (
-            <div className="row">
-                <span className="AccountItem"> {this.props.account.id} </span> 
+            <div className="AccountListItems">
                 <span className="AccountItem"> {this.props.account.name} </span> 
                 <span className="AccountItem"> {this.props.account.balance} </span> 
             </div>

@@ -1,0 +1,28 @@
+.AddTransaction {
+    display: inline-flex;
+    margin: 0 20px;
+    padding: 20px;
+    width: 500px;
+    height: 350px;
+    background-color: #37474f;
+    border-radius: 10px;
+}
+
+.TransactionList {
+    display: inline-flex;
+    margin: 0 20px;
+    background-color: #37474f;
+}
+
+.TransactionItem {
+    display: flex;
+    margin: 0 0 20px;
+    justify-content: space-between;
+    width: 600px;
+    color: white;
+}
+
+.TransactionListItems {
+    display: flex;
+    margin: 0 0 20px;
+}
