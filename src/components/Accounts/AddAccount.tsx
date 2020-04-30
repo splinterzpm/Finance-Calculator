@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
-import Account from '../Account';
-import '../scss/Account.scss';
+
+import Account from '../../Account';
+
+//import './../../../node_modules/materialize-css/sass/materialize.css';
+import 'materialize-css';
+import '../../scss/Account.scss';
 
 interface Props {
     handleCreateAccount: (account: Account) => void
@@ -12,16 +16,14 @@ interface State {
     balance: number,
 }
 
-class AddAccount extends Component <Props, State> {
+class AddAccount extends Component<Props, State> {
     constructor(props: Props) {
         super(props);
         this.state = {
-            id: 0,
+            id: 3,
             name: '',
             balance: 0
         };
-
-        this.handleChange = this.handleChange.bind(this);
     }
     
     handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -40,9 +42,9 @@ class AddAccount extends Component <Props, State> {
             <div className="AddAccount">
                 <form>
                     <div className="SpanAddAccount">
-                        <span> Добавление счета </span>
+                        <span> Add Account </span>
                     </div>
-    
+
                     <div>
                         <div className="input-field col s4">
                         <input placeholder="Account Name" type="text" className="validate"  name="name" value={this.state.name} 
@@ -55,8 +57,8 @@ class AddAccount extends Component <Props, State> {
                             <input placeholder="Balance" type="number" className="validate" name="balance" value={this.state.balance} 
                                 onChange={this.handleChange}/>
                         </div>
-                        <button className="waves-effect waves-light btn cyan lighten-1 AccBtn"  
-                        onClick={this.handleSubmit}> Add </button>
+                        <button className="waves-effect waves-light btn blue-grey darken-2"  
+                            onClick={this.handleSubmit}> Add </button>
                     </div>
                 </form>
             </div>
