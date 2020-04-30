@@ -2,19 +2,18 @@ import React, { Component } from 'react';
 
 import Account from '../../Account';
 
-//import './../../../node_modules/materialize-css/sass/materialize.css';
 import 'materialize-css';
 import '../../scss/Account.scss';
 
 interface Props {
     handleCreateAccount: (account: Account) => void
-}
+};
 
 interface State {
     id: number,
     name: string,
     balance: number,
-}
+};
 
 class AddAccount extends Component<Props, State> {
     constructor(props: Props) {
@@ -47,16 +46,23 @@ class AddAccount extends Component<Props, State> {
 
                     <div>
                         <div className="input-field col s4">
-                        <input placeholder="Account Name" type="text" className="validate"  name="name" value={this.state.name} 
+                        <input placeholder="Account Name" type="text" 
+                            className="validate AccountInput"  
+                            name="name" 
+                            value={this.state.name}
                             onChange={this.handleChange} />
                         </div>
                     </div>
     
                     <div>
                         <div className="input-field col s4">
-                            <input placeholder="Balance" type="number" className="validate" name="balance" value={this.state.balance} 
+                            <input placeholder="Balance" type="number" 
+                                className="validate AccountInput" 
+                                name="balance" 
+                                value={this.state.balance}
                                 onChange={this.handleChange}/>
                         </div>
+
                         <button className="waves-effect waves-light btn blue-grey darken-2"  
                             onClick={this.handleSubmit}> Add </button>
                     </div>

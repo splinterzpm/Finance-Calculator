@@ -8,9 +8,9 @@ import '../../scss/Account.scss';
 
 interface Props {
     accountList: Array<Account>
-}
+};
 
-interface State {}
+interface State {};
 
 class Accounts extends Component<Props, State> {
 

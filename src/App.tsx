@@ -9,11 +9,13 @@ import AccountsBar from './components/Accounts/AccountsBar';
 import Transaction from './components/Transactions/Transaction';
 import Transactions from './components/Transactions/Transactions';
 import AddTransaction from './components/Transactions/AddTransaction';
+import AddCategory from './components/Categories/AddCategory';
 import NotFound from './components/NotFound';
 
 import "../node_modules/materialize-css/sass/materialize.scss";
 
-interface Props {}
+
+interface Props {};
 
 interface State {
   accountList: Array<Account>,
@@ -55,20 +57,29 @@ class App extends React.Component<Props, State>{
           <nav>
             <div className="nav-wrapper blue-grey darken-3">
               <ul id="nav-mobile" className="left hide-on-med-and-down">
+
                 <li>
                   <Link to="/" className="brand-logo right">FinCalc</Link>
                 </li>
+
                 <li>
                   <Link to="/Accounts/Add">Add Account</Link>
                 </li>
+
                 <li>
                   <Link to="/Accounts">Accounts</Link>
                 </li>
+
                 <li>
                   <Link to="/Transactions">Transactions</Link>
                 </li>
+
                 <li>
                   <Link to="/Transactions/Add">Add Transaction</Link>
+                </li>
+                
+                <li>
+                  <Link to="/AddCategory">Add Category</Link>
                 </li>
               </ul>
             </div>
@@ -85,7 +96,8 @@ class App extends React.Component<Props, State>{
                               accountList={this.state.accountList} 
                               categories={this.state.categories}/>} 
             />
-            <Route path="/Transactions" render={(props) => <Transactions transactionList={this.state.transactionList} />} />            
+            <Route path="/Transactions" render={(props) => <Transactions transactionList={this.state.transactionList} />} />
+            <Route path="/AddCategory" render={(props) => <AddCategory categories={this.state.categories} />} />           
             <Route component={NotFound} />
           </Switch>
         </Router>

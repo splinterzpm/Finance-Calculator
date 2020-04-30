@@ -6,7 +6,7 @@ import '../../scss/Account.scss';
 
 interface Props {
     account: Account
-}
+};
 
 class AccountItem extends Component<Props, any>{
 

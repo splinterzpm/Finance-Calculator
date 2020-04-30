@@ -4,8 +4,7 @@ import Account from "../../Account";
 
 interface Props {
     account: Account['name']
-    handlePass: (account: Account['name']) => void
-}
+};
 
 class TransactionAccountItem extends Component<Props, any>{
 

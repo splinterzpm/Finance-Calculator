@@ -6,14 +6,12 @@ export default class Transaction {
   amount: number;
   category: string;
   description: string;
-  date?: Date;
 
-  constructor(id: number, account: Account['name'], amount: number, category: string, description: string, date?: Date ) {
+  constructor(id: number, account: Account['name'], amount: number, category: string, description: string) {
       this.id = id;
       this.account = account;
       this.amount = amount;
       this.category = category;
       this.description = description;
-      this.date = new Date();
   }
 }

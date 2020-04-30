@@ -8,9 +8,9 @@ import '../../scss/Transaction.scss';
 
 interface Props {
     transactionList: Array<Transaction>
-}
+};
 
-interface State {}
+interface State {};
 
 class Transactions extends Component<Props, State> {
 

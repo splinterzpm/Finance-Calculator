@@ -24,7 +24,7 @@ class AddTransaction extends Component<Props, State> {
     constructor(props: Props) {
         super(props);
         this.state = {
-            id: 0,
+            id: 1,
             account: '',
             accountid: 0,
             amount: 0,
@@ -50,6 +50,10 @@ class AddTransaction extends Component<Props, State> {
         this.setState({ account: account, accountid: id });
     }
 
+    handleDropdownCategory = (category: string) => {
+        this.setState({category: category});
+    }
+
     componentDidMount = () => {
         var elems = document.querySelectorAll('.dropdown-trigger');
         M.Dropdown.init(elems, {inDuration: 300, outDuration: 225});
@@ -66,11 +70,13 @@ class AddTransaction extends Component<Props, State> {
                     <div>
                         <div className="input-field col s4">
                             <a className="dropdown-trigger btn blue-grey darken-2" href="#" data-target="dropdown1"> Choose account</a>
-                            <ul id="dropdown1" className='dropdown-content blue-grey darken-2'>
+                            <ul id="dropdown1" className="dropdown-content blue-grey darken-2">
                                 { this.props.accountList.map((account)=> (
-                                    <li key={`account_${account.id}`} onClick={() => this.handleChangeDropdown(account.name, account.id)}>
+                                    <li className="DropdownItems" key={`account_${account.id}`} onClick={() => this.handleChangeDropdown(account.name, account.id)}>
                                         <a href="#!">
-                                            {account.name}
+                                            <div className="DropdownItems">
+                                                {account.name}
+                                            </div>
                                         </a>
                                     </li>
                                 ))
@@ -81,21 +87,32 @@ class AddTransaction extends Component<Props, State> {
 
                     <div>
                         <div className="input-field col s4">
-                        <input placeholder="Amount" type="number" className="validate"  name="amount" value={this.state.amount} 
+                        <input placeholder="Amount" type="number" className="validate TransactionInput"  name="amount" value={this.state.amount} 
                             onChange={this.handleChange} />
                         </div>
                     </div>
 
                     <div>
                         <div className="input-field col s4">
-                        <input placeholder="Category" type="text" className="validate"  name="category" value={this.state.category} 
-                            onChange={this.handleChange} />
+                            <a className="dropdown-trigger btn blue-grey darken-2" href="#" data-target="dropdown2"> Choose category</a>
+                            <ul id="dropdown2" className='dropdown-content blue-grey darken-2 Dropdown'>
+                                { this.props.categories.map((category, i)=> (
+                                    <li key={i} onClick={() => this.handleDropdownCategory(category)}>
+                                        <a href="#!">
+                                            <div className="DropdownItems">
+                                                {category}
+                                            </div>
+                                        </a>
+                                    </li>
+                                ))
+                                }
+                            </ul>
                         </div>
                     </div>
     
                     <div>
                         <div className="input-field col s4">
-                            <input placeholder="Description" type="text" className="validate" name="description" value={this.state.description} 
+                            <input placeholder="Description" type="text" className="validate TransactionInput" name="description" value={this.state.description} 
                                 onChange={this.handleChange} /> 
                         </div>
                         <button className="waves-effect waves-light btn blue-grey darken-2 TransactionBtn"  
