@@ -12,8 +12,8 @@ class TransactionItem extends Component<Props, any>{
 
     render() {
         return (
-            <div className="collection-item blue-grey darken-2 TransactionItems">
-                <div className="TransactionItemsDiv">
+            <div className="collection-item blue-grey darken-2 transaction-item-list">
+                <div className="transaction-item-list__items">
                     <span> {this.props.transaction.account} </span> 
                     <span> {this.props.transaction.category} </span> 
                     <span> {this.props.transaction.description} </span>

@@ -16,8 +16,8 @@ class Accounts extends Component<Props, State> {
 
     render() {
         return (
-            <div className="AccountList">
-                <div className="AccountListDiv">
+            <div className="account-list">
+                <div className="account-list-items">
                     {
                         this.props.accountList.map((account) => (
                             <AccountItem key={`account_${account.id}`} account={account} />

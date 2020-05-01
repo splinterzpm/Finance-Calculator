@@ -16,7 +16,7 @@ class Transactions extends Component<Props, State> {
 
     render() {
         return (
-                <ul className="TransactionList collection blue-grey darken-2">
+                <ul className="collection blue-grey darken-2 transaction-list">
                     <li>
                         {
                             this.props.transactionList.map((transaction) => (
