@@ -1,4 +1,4 @@
-.AddTransaction {
+.add-transaction {
     display: inline-flex;
     margin: 0 20px;
     padding: 20px;
@@ -8,13 +8,13 @@
     border-radius: 10px;
 }
 
-.TransactionList {
+.transaction-list {
     display: inline-flex;
     margin: 0 20px;
     background-color: #37474f;
 }
 
-.TransactionItems {
+.transaction-item-list {
     display: flex;
     margin: 0 0 20px;
     justify-content: space-between;
@@ -23,20 +23,15 @@
     text-transform: capitalize;
 }
 
-.TransactionListItems {
-    display: flex;
-    margin: 0 0 20px;
-}
-
-.TransactionItemsDiv {
+.transaction-item-list__items {
     display: grid;
 }
 
-.TransactionBtn {
+.add-transaction__button {
     margin: 10px, 0;
 }
 
-.SpanAddTransaction {    
+.add-transaction__span {    
     display: block;
     font-size: 14px;
     text-transform: uppercase;
@@ -45,7 +40,7 @@
     color: white;
 }
 
-.DropdownItems {
+.dropdown-content__item {
     color: white;
     text-transform: capitalize;
 }
@@ -54,6 +49,6 @@
     background-color: darken($color: #455a64, $amount: 10%)
 }
 
-.TransactionInput {
+.add-transaction__input {
     color: white;
 }

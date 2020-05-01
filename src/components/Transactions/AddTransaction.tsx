@@ -41,9 +41,12 @@ class AddTransaction extends Component<Props, State> {
     handleSubmit = (e: React.FormEvent<HTMLButtonElement>) => {
         e.preventDefault();
         const {id, account, amount, accountid, category, description} = this.state;
-        this.props.handleCreateTransaction(new Transaction(id, account, amount, category, description));
-        this.props.accountList[accountid].balance = this.props.accountList[accountid].balance - amount;
-        this.setState({id: id+1, amount: 0, category: '', description: ''});
+        if (amount > 0) {
+            this.props.handleCreateTransaction(new Transaction(id, account, amount, category, description));
+            this.props.accountList[accountid].balance = this.props.accountList[accountid].balance - amount;
+            this.setState({id: id+1, amount: 0, category: '', description: ''});
+        }
+        else alert ('Add the appropriate amount');
     }
 
     handleChangeDropdown = (account: Account['name'], id: Account['id']) => {
@@ -61,20 +64,28 @@ class AddTransaction extends Component<Props, State> {
 
     render() {
         return (
-            <div className="AddTransaction">
+            <div className="add-transaction">
                 <form>
-                    <div className="SpanAddTransaction">
+                    <div className="add-transaction__span">
                         <span> Add transaction </span>
                     </div>
                     
                     <div>
                         <div className="input-field col s4">
-                            <a className="dropdown-trigger btn blue-grey darken-2" href="#" data-target="dropdown1"> Choose account</a>
-                            <ul id="dropdown1" className="dropdown-content blue-grey darken-2">
+                            <a className="dropdown-trigger btn blue-grey darken-2" 
+                                href="#" 
+                                data-target="dropdown-account"> 
+                                Choose account
+                            </a>
+
+                            <ul id="dropdown-account" className="dropdown-content blue-grey darken-2">
                                 { this.props.accountList.map((account)=> (
-                                    <li className="DropdownItems" key={`account_${account.id}`} onClick={() => this.handleChangeDropdown(account.name, account.id)}>
+                                    <li className="dropdown-accounts" 
+                                        key={`account_${account.id}`} 
+                                        onClick={() => this.handleChangeDropdown(account.name, account.id)}>
+
                                         <a href="#!">
-                                            <div className="DropdownItems">
+                                            <div className="dropdown-content__item">
                                                 {account.name}
                                             </div>
                                         </a>
@@ -87,19 +98,28 @@ class AddTransaction extends Component<Props, State> {
 
                     <div>
                         <div className="input-field col s4">
-                        <input placeholder="Amount" type="number" className="validate TransactionInput"  name="amount" value={this.state.amount} 
+                        <input placeholder="Amount" 
+                            type="number" 
+                            className="validate add-transaction__input"  
+                            name="amount" 
+                            value={this.state.amount} 
                             onChange={this.handleChange} />
                         </div>
                     </div>
 
                     <div>
                         <div className="input-field col s4">
-                            <a className="dropdown-trigger btn blue-grey darken-2" href="#" data-target="dropdown2"> Choose category</a>
-                            <ul id="dropdown2" className='dropdown-content blue-grey darken-2 Dropdown'>
+                            <a className="dropdown-trigger btn blue-grey darken-2" 
+                                href="#" 
+                                data-target="dropdown-category"> 
+                                Choose category
+                            </a>
+
+                            <ul id="dropdown-category" className="dropdown-content blue-grey darken-2">
                                 { this.props.categories.map((category, i)=> (
                                     <li key={i} onClick={() => this.handleDropdownCategory(category)}>
                                         <a href="#!">
-                                            <div className="DropdownItems">
+                                            <div className="dropdown-content__item">
                                                 {category}
                                             </div>
                                         </a>
@@ -112,10 +132,14 @@ class AddTransaction extends Component<Props, State> {
     
                     <div>
                         <div className="input-field col s4">
-                            <input placeholder="Description" type="text" className="validate TransactionInput" name="description" value={this.state.description} 
-                                onChange={this.handleChange} /> 
+                            <input placeholder="Description" 
+                                type="text" className="validate add-transaction__input" 
+                                name="description" 
+                                value={this.state.description} 
+                                onChange={this.handleChange} 
+                            /> 
                         </div>
-                        <button className="waves-effect waves-light btn blue-grey darken-2 TransactionBtn"  
+                        <button className="waves-effect waves-light btn blue-grey darken-2 add-transaction__button"  
                         onClick={this.handleSubmit}> Add </button>
                     </div>
                 </form>

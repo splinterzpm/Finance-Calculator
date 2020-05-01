@@ -38,16 +38,16 @@ class AddAccount extends Component<Props, State> {
 
     render() {
         return (
-            <div className="AddAccount">
+            <div className="add-account">
                 <form>
-                    <div className="SpanAddAccount">
+                    <div className="add-account__span">
                         <span> Add Account </span>
                     </div>
 
                     <div>
                         <div className="input-field col s4">
                         <input placeholder="Account Name" type="text" 
-                            className="validate AccountInput"  
+                            className="validate add-account__input"  
                             name="name" 
                             value={this.state.name}
                             onChange={this.handleChange} />
@@ -57,7 +57,7 @@ class AddAccount extends Component<Props, State> {
                     <div>
                         <div className="input-field col s4">
                             <input placeholder="Balance" type="number" 
-                                className="validate AccountInput" 
+                                className="validate add-account__input" 
                                 name="balance" 
                                 value={this.state.balance}
                                 onChange={this.handleChange}/>

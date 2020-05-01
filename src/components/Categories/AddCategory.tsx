@@ -27,22 +27,25 @@ class AddCategory extends Component<Props, State> {
     handleSubmit = (e: React.FormEvent<HTMLButtonElement>) => {
         e.preventDefault();
         const {id, categoryName} = this.state;
-        this.props.categories.push(categoryName);
-        this.setState({id: id+1, categoryName: ''});
+        if (categoryName !='') {
+            this.props.categories.push(categoryName);
+            this.setState({id: id+1, categoryName: ''});
+        }
+        else alert ('Add the appropriate name of category');
     }
 
     render() {
         return (
-            <div className="AddCategory">
+            <div className="add-category">
                 <form>
-                    <div className="SpanAddAccount">
+                    <div className="add-category__span">
                         <span> Add Category </span>
                     </div>
     
                     <div>
                         <div className="input-field col s4">
                             <input placeholder="Category Name" type="text" 
-                                className="validate CategoryInput"  
+                                className="validate add-category__name"  
                                 name="categoryName" 
                                 value={this.state.categoryName} 
                                 onChange={this.handleChange} />
