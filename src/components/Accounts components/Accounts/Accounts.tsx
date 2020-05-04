@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 
-import Account from '../../Account';
-import AccountItem from './AccountItem';
+import Account from '../Account';
+import AccountItem from '../AccountItem/AccountItem';
 
-import '../../scss/Account.scss';
+import './Accounts.scss';
 
 
 interface Props {
     accountList: Array<Account>
 };
 
-interface State {};
+interface State { };
 
 class Accounts extends Component<Props, State> {
 

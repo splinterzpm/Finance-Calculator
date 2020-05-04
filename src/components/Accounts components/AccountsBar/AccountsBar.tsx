@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-import Account from '../../Account';
-import AccountItem from './AccountItem';
+import Account from '../Account';
+import AccountItem from '../AccountItem/AccountItem';
 
-import '../../scss/Account.scss';
+import './AccountsBar.scss';
 
 interface Props {
     accountList: Array<Account>
 };
 
-interface State {};
+interface State { };
 
 class AccountsBar extends Component<Props, State> {
 
