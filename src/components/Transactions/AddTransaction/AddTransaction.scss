@@ -3,11 +3,12 @@
     margin: 0 20px;
     padding: 20px;
     width: 500px;
-    height: 350px;
+    height: 420px;
     background-color: #37474f;
     border-radius: 10px;
 }
 
+<<<<<<< HEAD:src/scss/Transaction.scss
 .transaction-list {
     display: inline-flex;
     margin: 0 20px;
@@ -27,11 +28,17 @@
     display: grid;
 }
 
+=======
+>>>>>>> dev:src/components/Transactions/AddTransaction/AddTransaction.scss
 .add-transaction__button {
     margin: 10px, 0;
 }
 
+<<<<<<< HEAD:src/scss/Transaction.scss
 .add-transaction__span {    
+=======
+.add-transaction__title {    
+>>>>>>> dev:src/components/Transactions/AddTransaction/AddTransaction.scss
     display: block;
     font-size: 14px;
     text-transform: uppercase;
@@ -40,6 +47,13 @@
     color: white;
 }
 
+<<<<<<< HEAD:src/scss/Transaction.scss
+=======
+.add-transaction__input {
+    color: white;
+}
+
+>>>>>>> dev:src/components/Transactions/AddTransaction/AddTransaction.scss
 .dropdown-content__item {
     color: white;
     text-transform: capitalize;
@@ -49,6 +63,12 @@
     background-color: darken($color: #455a64, $amount: 10%)
 }
 
+<<<<<<< HEAD:src/scss/Transaction.scss
 .add-transaction__input {
     color: white;
+=======
+.add-transaction__label {
+    display: block;
+    margin: 10px;
+>>>>>>> dev:src/components/Transactions/AddTransaction/AddTransaction.scss
 }

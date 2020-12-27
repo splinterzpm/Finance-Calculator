@@ -1,0 +1,17 @@
+.account-list {
+    display: inline-flex;
+    justify-content: space-between;
+    margin: 0px 20px 20px 20px;
+    padding: 20px;
+    width: 600px;
+    background-color: #37474f;
+    color: white;
+    border-radius: 10px;
+}
+
+.account-list-items {
+    display: block;
+    width: 600px;
+    margin: 0 0 10px;
+    justify-content: space-between;
+}

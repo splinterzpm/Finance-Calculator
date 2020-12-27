@@ -1,22 +1,36 @@
-.add-category {
+.add-account {
     display: inline-flex;
     margin: 0 20px;
     padding: 20px;
     width: 500px;
-    height: 200px;
+    height: 300px;
     background-color: #37474f;
     border-radius: 10px;
 }
 
-.add-category__name {
-    color: white;
-}
-
-.add-category__span {
+.add-account__title {
     font-size: 14px;
+    margin: 0 0 10px;
     text-transform: uppercase;
     padding: 0px 16px;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     color: white;
     display: block;
+}
+
+.add-account__input {
+    margin: 10px 0;
+}
+
+.add-account__input__name {
+    color:white;
+}
+
+.add-account__input__balance {
+    color:white;
+}
+
+.add-account__label {
+    display: block;
+    margin: 10px;
 }

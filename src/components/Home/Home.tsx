@@ -1,11 +1,10 @@
 import * as React from 'react';
-import '../scss/Home.scss';
+import './Home.scss';
 
 export default class Home extends React.Component {
-  render () {
+  render() {
     return (
-      <span className="Home" >Make Your Account Today</span>
+      <span className="home" >Make Your Account Today</span>
     );
   }
 }
-  

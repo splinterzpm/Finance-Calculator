@@ -13,11 +13,16 @@
     "@types/react-dom": "^16.9.6",
     "materialize-css": "^1.0.0",
     "node-sass": "^4.13.1",
+    "prettier": "^2.0.5",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-materialize": "^3.8.10",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.1",
+    "tslint": "^6.1.2",
+    "tslint-config-airbnb": "^5.11.2",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-react": "^5.0.0",
     "typescript": "^3.7.5"
   },
   "scripts": {
